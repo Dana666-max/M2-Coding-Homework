@@ -25,12 +25,6 @@ public class Main {
      */
     public static int getNumberOfSubBreeds(String breed, BreedFetcher breedFetcher) throws Exception {
         // return statement included so that the starter code can compile and run.
-        try {
-            List<String> breedlist = breedFetcher.getSubBreeds(breed);
-            return breedlist.size();
-        }
-        catch (BreedFetcher.BreedNotFoundException e) {
-            throw new BreedFetcher.BreedNotFoundException("Error fetching breed data: " + e.getMessage());
-        }
-    }
-}
+        List<String> breedlist = breedFetcher.getSubBreeds(breed);
+        return breedlist.size();
+    }}
