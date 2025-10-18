@@ -13,7 +13,12 @@ class DogApiBreedFetcherTest {
     @Test
     void testValidBreedReturnsSubBreeds() throws BreedFetcher.BreedNotFoundException {
         BreedFetcher fetcher = new DogApiBreedFetcher();
-        List<String> subBreeds = fetcher.getSubBreeds("hound");
+        List<String> subBreeds = null;
+        try {
+            subBreeds = fetcher.getSubBreeds("hound");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         Set<String> expected = new HashSet<>(List.of("afghan", "basset", "blood", "english", "ibizan", "plott", "walker"));
         assertEquals(expected, new HashSet<>(subBreeds));
     }
